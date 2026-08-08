@@ -1,0 +1,80 @@
+﻿@model T03.Models.RegistroModel
+
+@{
+    Layout = "_LayoutExterno";
+}
+
+<div class="row justify-content-center mb-4">
+    <div class="col-md-8 col-lg-6">
+        <div class="d-flex">
+            <a asp-controller="Home"
+               asp-action="Consultar"
+               class="btn btn-gradient-danger btn-rounded btn-fw">
+
+                <i class="mdi mdi-arrow-left"></i>
+                Ir a Consulta
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6 grid-margin stretch-card">
+
+        <div class="card bg-gradient-info card-img-holder shadow-lg">
+
+            <div class="card-body">
+
+                <img src="~/image/circle.svg" class="card-img-absolute" alt="circle-image" />
+                <h4 class="card-title text-center mb-4 text-white">
+                    Registro Abono
+                </h4>
+
+                @if (TempData["Mensaje"] != null)
+                {
+                    <div class="alert alert-@TempData["TipoMensaje"] text-center">
+                        @TempData["Mensaje"]
+                    </div>
+                }
+
+                <form asp-controller="Home" asp-action="Registrar" method="post" id="formAbono">
+
+                    <div class="form-group">
+                        <label class="text-white">Compra</label>
+
+                        <select asp-for="IdCompra"
+                                asp-items="Model.ComprasPendientes"
+                                class="form-select cliente-select">
+
+                            <option value="">Seleccione una compra</option>
+
+                        </select>
+
+                        <span asp-validation-for="IdCompra" class="text-warning"></span>
+                    </div>
+                   
+                    <div class="form-group">
+                        <label class="text-white">Saldo Anterior</label>
+                        <input asp-for="SaldoAnterior" type="number" class="form-control form-control-xl" readonly />                        
+                         <span asp-validation-for="SaldoAnterior" class="text-warning"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="text-white">Abono</label>
+                        <input asp-for="Abono" type="number" step="0.01" min="0.01" class="form-control form-control-xl" />
+                        <span asp-validation-for="Abono" class="text-warning"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-gradient-danger btn-rounded btn-fw me-2">
+                        Abonar
+                    </button>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<script src="~/js/registrar.js"></script>

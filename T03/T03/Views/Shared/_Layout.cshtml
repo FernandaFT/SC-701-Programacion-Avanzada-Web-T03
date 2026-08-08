@@ -1,50 +1,94 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - T03</title>
-    <script type="importmap"></script>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/T03.styles.css" asp-append-version="true" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>G01</title>
+
+    <link href="~/css/style.css" rel="stylesheet" />
+
+    <link href="~/css/materialdesignicons.min.css" rel="stylesheet" />
+    <link href="~/css/themify-icons.css" rel="stylesheet" />
+    <link href="~/css/vendor.bundle.base.css" rel="stylesheet" />
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="~/image/favicon.png" />
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">T03</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+    @RenderBody()
+    <div class="container-scroller">
+
+        <div class="container-fluid page-body-wrapper">
+
+            <div class="main-panel-body">
+                <div class="content-wrapper">
+                    <div class="page-header">
+                        <h3 class="page-title">
+                            <span class="page-title-icon bg-gradient-danger text-white me-2">
+                                <i class="mdi mdi-star-face"></i>
+                            </span> Bienvenidos al Sistema
+                        </h3>
+                    </div>
+                    <div class="row row-altura">
+                        <div class="col-md-4 stretch-card grid-margin">
+                            <div class="card bg-gradient-info card-img-holder text-white">
+                                <div class="card-body">
+                                    <img src="~/image/circle.svg" class="card-img-absolute" alt="circle-image" />
+                                    <h4 class="font-weight-normal mb-3">
+                                        Registro <i class="mdi mdi-account mdi-24px float-end"></i>
+                                    </h4>
+                                    <p class="mb-5">Agrega abonos.</p>
+                                    <a asp-action="Registrar" asp-controller="Home"
+                                       class="btn btn-gradient-danger btn-rounded btn-fw">
+                                        Ir al Registro
+                                        <i class="mdi mdi-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 stretch-card grid-margin">
+                            <div class="card bg-gradient-success card-img-holder text-white">
+                                <div class="card-body">
+                                    <img src="~/image/circle.svg" class="card-img-absolute" alt="circle-image" />
+                                    <h4 class="font-weight-normal mb-3">
+                                        Consulta <i class="mdi mdi-list-box mdi-24px float-end"></i>
+                                    </h4>
+                                    <p class="mb-5">Visualiza los abonos.</p>
+                                    <a asp-action="Consultar" asp-controller="Home"
+                                       class="btn btn-gradient-danger btn-rounded btn-fw">
+                                        Ver Consulta
+                                        <i class="mdi mdi-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
+
+                <footer class="footer">
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright ©2026 Progamación Avanzada Web | Todos los derechos reservados.</span>
+                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Fernanda Fajardo | Jonathan Barrantes | Aaron Azofeifa | Ericka Torres | Zehan Wu Liang </span>
+                    </div>
+                </footer>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+        </div>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2026 - T03 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    <script src="~/js/vendor.bundle.base.js"></script>
+    <script src="~/js/chart.umd.js"></script>
+    <script src="~/js/bootstrap-datepicker.min.js"></script>
+    <script src="~/js/off-canvas.js"></script>
+    <script src="~/js/misc.js"></script>
+    <script src="~/js/settings.js"></script>
+    <script src="~/js/todolist.js"></script>
+    <script src="~/js/jquery.cookie.js"></script>
 </body>
 </html>
